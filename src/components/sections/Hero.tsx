@@ -3,9 +3,9 @@ export default function Hero() {
     <section id="hero" className="h-[calc(100vh-64px)]">
       <div className="relative w-full h-full">
         {/* Background image - using hero-bg.png */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in"
+          style={{ 
             backgroundImage: `url('/images/hero-bg.png')`,
             zIndex: 0,
           }}
@@ -14,7 +14,7 @@ export default function Hero() {
         </div>
 
         {/* Content overlay - Adjusted padding for mobile */}
-        <div className="relative z-10 flex flex-col items-center justify-start h-full pt-25 px-4 md:px-6 lg:px-8 text-center font-montserrat">
+        <div className="relative z-10 flex flex-col items-center justify-start h-full pt-25 px-4 md:px-6 lg:px-8 text-center font-montserrat animate-fade-in" style={{animationDelay:'0.5s'}}>
           {/* Main heading - Responsive text sizes */}
           <h1 className="text-[50px] font-semibold mb-4 md:mb-6 text-black max-w-5xl leading-tight font-montserrat">
             Let's Start the Green Energy Era

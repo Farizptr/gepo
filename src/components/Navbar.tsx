@@ -28,36 +28,27 @@ export default function Navbar() {
   return (
     <nav className={`w-full bg-white border-b border-gray-200 fixed top-0 z-50 transition-all duration-300 ${
       scrolled ? 'shadow-xl' : ''
-    }`}>
+    } animate-navbar-fade-in`}>
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo - pushed to the left */}
           <div className="flex-shrink-0">
             <img 
-              className="h-15 w-auto"
+              className="h-15 w-auto opacity-0 animate-fade-in"
               src="/images/logo-navbar.png" 
               alt="Gepo Energy Logo"
+              style={{ animation: 'fadeIn 1s forwards' }}
             />
           </div>
 
           {/* Desktop menu - centered */}
           <div className="hidden md:block flex-1">
             <div className="flex justify-center items-center space-x-8">
-              <a href="#tentang-kami" className="text-black hover:text-[#FFD700] focus:font-medium">
-                Tentang Kami
-              </a>
-              <a href="#produk" className="text-black hover:text-[#FFD700] focus:font-medium">
-                Produk
-              </a>
-              <a href="#legalitas" className="text-black hover:text-[#FFD700] focus:font-medium">
-                Legalitas
-              </a>
-              <a href="#proyek" className="text-black hover:text-[#FFD700] focus:font-medium">
-                Proyek
-              </a>
-              <a href="#testimoni" className="text-black hover:text-[#FFD700] focus:font-medium">
-                Testimoni
-              </a>
+              <a href="#tentang-kami" className="nav-link">Tentang Kami</a>
+              <a href="#produk" className="nav-link">Produk</a>
+              <a href="#legalitas" className="nav-link">Legalitas</a>
+              <a href="#proyek" className="nav-link">Proyek</a>
+              <a href="#testimoni" className="nav-link">Testimoni</a>
             </div>
           </div>
 
@@ -65,7 +56,7 @@ export default function Navbar() {
           <div className="hidden md:block flex-shrink-0">
             <a
               href="#hubungi-kami"
-              className="bg-[#FFD700] hover:bg-[#FFD700]/80 px-4 py-2 rounded-full text-black font-medium flex items-center focus:font-medium"
+              className="bg-[#FFD700] hover:bg-[#FFD700]/80 px-4 py-2 rounded-full text-black font-medium flex items-center focus:font-medium animate-pulse-on-hover transition-all duration-300"
             >
               Hubungi Kami
               <ChevronRight className="ml-1 h-4 w-4" />
@@ -118,7 +109,7 @@ export default function Navbar() {
             </a>
             <a
               href="#hubungi-kami"
-              className="block px-3 py-2 bg-[#FFD700] hover:bg-[#FFD700]/80 rounded-full text-black font-medium flex items-center w-max mt-4 focus:font-medium"
+              className="block px-3 py-2 bg-[#FFD700] hover:bg-[#FFD700]/80 rounded-full text-black font-medium items-center w-max mt-4 focus:font-medium"
             >
               Hubungi Kami
               <ChevronRight className="ml-1 h-4 w-4" />

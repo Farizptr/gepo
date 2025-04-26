@@ -4,12 +4,16 @@ export default function About() {
       <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-2 md:gap-4">
         {/* Left side - Image */}
         <div className="w-full md:w-[40%] flex justify-center items-start self-start">
-          <div className="w-full max-w-[520px] aspect-square bg-gray-100 rounded-3xl overflow-hidden shadow">
-            <img
-              src="/images/foto-about.png"
-              alt="Gepo Energy Solar Roof"
-              className="object-cover w-full h-full rounded-3xl"
-            />
+          <div className="w-full max-w-[520px] aspect-square bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-200">
+            <iframe
+              src="https://www.youtube.com/embed/U_znYIAKREE?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&cc_load_policy=0&loop=1&playlist=U_znYIAKREE"
+              title="Gepo Energy Video"
+              className="object-cover w-full h-full rounded-3xl pointer-events-none"
+              style={{aspectRatio: '1 / 1', background: '#fff'}}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              tabIndex={-1}
+            ></iframe>
           </div>
         </div>
 

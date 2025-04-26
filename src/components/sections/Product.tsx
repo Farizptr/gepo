@@ -4,15 +4,18 @@ export default function Product() {
       <div className="w-full max-w-5xl">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
-            <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
-            <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
-          </div>
-          <h1 className="text-3xl font-bold text-gray-800">Produk</h1>
-          <div className="flex items-center justify-center gap-2 mt-2">
-            <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
-            <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
+          <div className="flex items-center justify-center gap-4">
+            <div className="flex gap-1 items-center">
+              <div className="w-8 h-8 rounded-full bg-yellow-400"></div>
+              <div className="w-5 h-5 rounded-full bg-yellow-400"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+            </div>
+            <h1 className="font-semibold mx-4" style={{ fontSize: '30px' }}>Produk</h1>
+            <div className="flex gap-1 items-center">
+              <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div className="w-5 h-5 rounded-full bg-yellow-400"></div>
+              <div className="w-8 h-8 rounded-full bg-yellow-400"></div>
+            </div>
           </div>
         </div>
 
@@ -108,6 +111,12 @@ export default function Product() {
               </div>
             </div>
           </div>
+        </div>
+        {/* Section transition wave */}
+        <div className="w-full overflow-hidden leading-none -mb-1">
+          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-20">
+            <path d="M0,40 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#fff" />
+          </svg>
         </div>
       </div>
     </div>

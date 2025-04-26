@@ -1,6 +1,6 @@
 export default function Legality() {
   return (
-    <div className="relative w-full min-h-screen bg-white overflow-hidden">
+    <div className="relative w-full min-h-screen bg-white overflow-hidden mt-10">
       {/* Yellow circular elements */}
       <div className="absolute left-0 top-1/3 w-20 h-40 bg-yellow-400 rounded-r-full"></div>
       <div className="absolute right-0 bottom-20 w-20 h-40 bg-yellow-400 rounded-l-full"></div>
@@ -9,8 +9,8 @@ export default function Legality() {
       <div className="max-w-6xl mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-1">Legalitas</h1>
-          <p className="text-xl text-yellow-400 font-light">Powering Your Life</p>
+          <h1 className="font-semibold mb-1" style={{ fontSize: '40px' }}>Legalitas</h1>
+          <p className="font-medium text-[32px] italic" style={{ color: '#FFD700' }}>Powering Your Life</p>
         </div>
 
         {/* Certificates Grid */}

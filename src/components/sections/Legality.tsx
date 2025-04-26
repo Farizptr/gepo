@@ -22,8 +22,8 @@ export default function Legality() {
             
             <div className="bg-gray-50 rounded-lg p-4 flex justify-center">
               <img 
-                src="/api/placeholder/400/220" 
-                alt="NIB Certificate" 
+                src="/images/sertifikat-1.png" 
+                alt="NIB Certificate"
                 className="w-full max-w-md object-contain"
               />
             </div>
@@ -36,8 +36,8 @@ export default function Legality() {
             
             <div className="bg-gray-50 rounded-lg p-4 flex justify-center">
               <img 
-                src="/api/placeholder/400/220" 
-                alt="SNI Certificate" 
+                src="/images/sertifikat-2.png" 
+                alt="SNI Certificate"
                 className="w-full max-w-md object-contain"
               />
             </div>

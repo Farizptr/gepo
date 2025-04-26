@@ -30,15 +30,15 @@ export default function Product() {
               <div className="flex gap-2">
                 <div className="w-1/2 h-40 bg-gray-200 rounded overflow-hidden">
                   <img
-                    src="/api/placeholder/200/160"
-                    alt="Solar Panel Connection"
+                    src="/images/produk-1.png"
+                    alt="Gepo Solar Roof - Solar Panel Connection"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="w-1/2 h-40 bg-gray-200 rounded overflow-hidden">
                   <img
-                    src="/api/placeholder/200/160"
-                    alt="Integrated Roof Panel"
+                    src="/images/produk-2.png"
+                    alt="Gepo Solar Roof - Integrated Roof Panel"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -58,7 +58,7 @@ export default function Product() {
               <div className="flex justify-center">
                 <div className="w-full h-40 bg-gray-200 rounded overflow-hidden">
                   <img
-                    src="/api/placeholder/320/160"
+                    src="/images/produk-3.png"
                     alt="Self Cleaning Glass Comparison"
                     className="w-full h-full object-cover"
                   />
@@ -79,7 +79,7 @@ export default function Product() {
               <div className="flex justify-center">
                 <div className="w-full h-32 bg-gray-200 rounded overflow-hidden">
                   <img
-                    src="/api/placeholder/320/128"
+                    src="/images/produk-4.png"
                     alt="IoT Monitoring Dashboard"
                     className="w-full h-full object-cover"
                   />
@@ -100,7 +100,7 @@ export default function Product() {
               <div className="flex justify-center">
                 <div className="w-full h-32 bg-gray-200 rounded overflow-hidden">
                   <img
-                    src="/api/placeholder/320/128"
+                    src="/images/produk-4.png"
                     alt="Small Scale Prototype"
                     className="w-full h-full object-cover"
                   />

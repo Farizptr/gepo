@@ -29,7 +29,7 @@ export default function Hero() {
           </p>
 
           {/* CTA Button - Made responsive */}
-          <button className="bg-black text-white font-montserrat text-[16px] tracking-widest py-5 px-8 mb-4 rounded-full">
+          <button className="bg-black text-white font-montserrat text-[16px] tracking-widest py-5 px-8 mb-4 rounded-full hover:bg-[#FFD700] hover:text-black hover:font-semibold transition-colors duration-200 cursor-pointer">
             JELAJAHI SOLUSI KAMI
           </button>
 

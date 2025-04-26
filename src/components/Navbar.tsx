@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { ChevronRight } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +15,9 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -26,29 +26,56 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`w-full bg-white border-b border-gray-200 fixed top-0 z-50 transition-all duration-300 ${
-      scrolled ? 'shadow-xl' : ''
-    } animate-navbar-fade-in`}>
+    <nav
+      className={`w-full bg-white border-b border-gray-200 fixed top-0 z-50 transition-all duration-300 ${
+        scrolled ? "shadow-xl" : ""
+      } animate-navbar-fade-in`}
+    >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo - pushed to the left */}
           <div className="flex-shrink-0">
-            <img 
+            <img
               className="h-15 w-auto opacity-0 animate-fade-in"
-              src="/images/logo-navbar.png" 
+              src="/images/logo-navbar.png"
               alt="Gepo Energy Logo"
-              style={{ animation: 'fadeIn 1s forwards' }}
+              style={{ animation: "fadeIn 1s forwards" }}
             />
           </div>
 
           {/* Desktop menu - centered */}
           <div className="hidden md:block flex-1">
             <div className="flex justify-center items-center space-x-8">
-              <a href="#tentang-kami" className="nav-link">Tentang Kami</a>
-              <a href="#produk" className="nav-link">Produk</a>
-              <a href="#legalitas" className="nav-link">Legalitas</a>
-              <a href="#proyek" className="nav-link">Proyek</a>
-              <a href="#testimoni" className="nav-link">Testimoni</a>
+              <a
+                href="#tentang-kami"
+                className="nav-link text-black hover:text-black hover:font-semibold"
+              >
+                Tentang Kami
+              </a>
+              <a
+                href="#produk"
+                className="nav-link text-black hover:text-black hover:font-semibold"
+              >
+                Produk
+              </a>
+              <a
+                href="#legalitas"
+                className="nav-link text-black hover:text-black hover:font-semibold"
+              >
+                Legalitas
+              </a>
+              <a
+                href="#proyek"
+                className="nav-link text-black hover:text-black hover:font-semibold"
+              >
+                Proyek
+              </a>
+              <a
+                href="#testimoni"
+                className="nav-link text-black hover:text-black hover:font-semibold"
+              >
+                Testimoni
+              </a>
             </div>
           </div>
 
@@ -78,9 +105,19 @@ export default function Navbar() {
                 aria-hidden="true"
               >
                 {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
               </svg>
             </button>
@@ -92,19 +129,34 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#tentang-kami" className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium">
+            <a
+              href="#tentang-kami"
+              className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium"
+            >
               Tentang Kami
             </a>
-            <a href="#produk" className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium">
+            <a
+              href="#produk"
+              className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium"
+            >
               Produk
             </a>
-            <a href="#legalitas" className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium">
+            <a
+              href="#legalitas"
+              className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium"
+            >
               Legalitas
             </a>
-            <a href="#proyek" className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium">
+            <a
+              href="#proyek"
+              className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium"
+            >
               Proyek
             </a>
-            <a href="#testimoni" className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium">
+            <a
+              href="#testimoni"
+              className="block px-3 py-2 text-black hover:text-[#FFD700] focus:font-medium"
+            >
               Testimoni
             </a>
             <a

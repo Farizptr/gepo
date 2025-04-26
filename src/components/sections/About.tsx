@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="py-16 px-0 md:px-16 mx-auto mt-10">
+    <section className="py-16 px-0 md:px-16 mx-auto mt-20">
       <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-2 md:gap-4">
         {/* Left side - Image */}
         <div className="w-full md:w-[40%] flex justify-center items-start self-start">

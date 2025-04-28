@@ -1,6 +1,6 @@
 export default function Projects() {
   return (
-    <div className="w-full bg-white py-16 px-4 md:px-20">
+    <div id="proyek" className="w-full bg-white py-16 px-4 md:px-20">
       {/* Header with yellow line decoration */}
       <div className=" mx-auto mb-20 flex items-center justify-center ">
         <svg

@@ -1,6 +1,6 @@
 export default function Product() {
   return (
-    <div className="min-h-screen w-full bg-[url('/images/produk-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center py-8">
+    <div id="produk" className="min-h-screen w-full bg-[url('/images/produk-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center py-8">
       <div className="w-full max-w-5xl">
         {/* Header */}
         <div className="text-center mb-8">

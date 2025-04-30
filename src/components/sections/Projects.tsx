@@ -13,7 +13,7 @@ export default function Projects() {
         >
           <polygon points="0,32 220,16 0,0" fill="#FFD700" />
         </svg>
-        <h2 className="text-3xl font-bold px-6">Proyek</h2>
+        <h3 className="text-3xl font-bold px-6">Proyek</h3>
         <svg
           width="100%"
           height="32"

@@ -15,24 +15,23 @@ const Certificate: FC<CertificateProps> = ({
 }) => {
   return (
     <div
-      className="rounded-3xl shadow-md p-4 sm:p-6 md:p-8 border border-black box-border flex flex-col items-center transition-shadow duration-300 hover:shadow-lg"
-      style={{ backgroundColor: "rgba(233,233,233,0.2)" }}
+      className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105"
     >
-      <h3 className="font-medium text-xl sm:text-2xl md:text-[30px] mb-2 text-left w-full leading-tight">
-        {title}
-      </h3>
-      <p className="mb-4 sm:mb-6 text-sm sm:text-base md:text-[16px] text-left w-full text-gray-700">
-        {description}
-      </p>
-
-      <img
-        src={imageSrc}
-        alt={imageAlt}
-        className="w-full max-w-lg object-contain mb-2"
-        loading="lazy"
-        width="512"
-        height="512"
-      />
+      <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          className="w-full h-full object-cover rounded-xl"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3">
+          {title}
+        </h3>
+        <p className="text-[16px] mb-4 text-[#828282]">
+          {description}
+        </p>
+      </div>
     </div>
   );
 };
@@ -58,7 +57,7 @@ const Legality: FC = () => {
   return (
     <section
       id="legalitas"
-      className="relative w-full min-h-screen bg-white overflow-hidden mt-10 px-4 sm:px-6 md:px-0 mx-auto max-w-7xl"
+      className="relative w-full min-h-screen bg-white overflow-hidden mt-10 px-4 sm:px-6 md:px-20"
       aria-labelledby="legality-heading"
     >
       {/* Yellow circular elements - decorative */}

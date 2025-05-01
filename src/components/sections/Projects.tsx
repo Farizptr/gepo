@@ -1,34 +1,6 @@
-import { useRef, useEffect, useState } from 'react';
-import ImageLoader from '../ImageLoader';
-
 export default function Projects() {
-  // Track if content is visible
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
-  
-  // First intersection observer - detect when section enters viewport to trigger animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
-    return () => observer.disconnect();
-  }, []);
-  
-  // We no longer need a separate observer for images since the blur-up effect handles loading
   return (
-    <div ref={sectionRef} id="proyek" className="w-full bg-white py-16 px-4 md:px-20">
+    <div id="proyek" className="w-full bg-white py-16 px-4 md:px-20">
       {/* Header with yellow line decoration */}
       <div className=" mx-auto mb-20 flex items-center justify-center ">
         <svg
@@ -55,17 +27,14 @@ export default function Projects() {
       </div>
 
       {/* Projects grid */}
-      <div 
-        ref={projectsRef}
-        className={`mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-500 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-4'}`}>
+      <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Project 1 */}
         <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
-            <ImageLoader
+            <img
               src="/images/projek-1.png"
               alt="Pemberdayaan Desa Tanaman"
-              className="w-full h-full rounded-xl"
-              blurAmount={8}
+              className="w-full h-full object-cover rounded-xl"
             />
           </div>
           <div className="p-6">
@@ -104,11 +73,10 @@ export default function Projects() {
         {/* Project 2 */}
         <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
-            <ImageLoader
+            <img
               src="/images/projek-2.png"
               alt="Proyek Pertamina Foundation di Hutan UGM"
-              className="w-full h-full rounded-xl"
-              blurAmount={8}
+              className="w-full h-full object-cover rounded-xl"
             />
           </div>
           <div className="p-6">

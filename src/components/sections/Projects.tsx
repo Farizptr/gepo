@@ -2,9 +2,13 @@ import { useRef, useEffect, useState } from 'react';
 import ImageLoader from '../ImageLoader';
 
 export default function Projects() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  // Track if content is visible and if images should be loaded
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldLoadImages, setShouldLoadImages] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
   
+  // First intersection observer - detect when section enters viewport to trigger animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -18,6 +22,25 @@ export default function Projects() {
     
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+  
+  // Second intersection observer - only load images when projects are about to be visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadImages(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px 0px' } // Start loading images when within 200px of viewport
+    );
+    
+    if (projectsRef.current) {
+      observer.observe(projectsRef.current);
     }
     
     return () => observer.disconnect();
@@ -50,15 +73,21 @@ export default function Projects() {
       </div>
 
       {/* Projects grid */}
-      <div className={`mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div 
+        ref={projectsRef}
+        className={`mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-500 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-4'}`}>
         {/* Project 1 */}
         <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
-            <ImageLoader
-              src="/images/projek-1.png"
-              alt="Pemberdayaan Desa Tanaman"
-              className="w-full h-full object-cover rounded-xl"
-            />
+            {shouldLoadImages ? (
+              <ImageLoader
+                src="/images/projek-1.png"
+                alt="Pemberdayaan Desa Tanaman"
+                className="w-full h-full object-cover rounded-xl"
+              />
+            ) : (
+              <div className="w-full h-48 bg-gray-100 rounded-xl"></div>
+            )}
           </div>
           <div className="p-6">
             <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3 font-[\'Plus Jakarta Sans\']">
@@ -96,11 +125,15 @@ export default function Projects() {
         {/* Project 2 */}
         <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
-            <ImageLoader
-              src="/images/projek-2.png"
-              alt="Proyek Pertamina Foundation di Hutan UGM"
-              className="w-full h-full object-cover rounded-xl"
-            />
+            {shouldLoadImages ? (
+              <ImageLoader
+                src="/images/projek-2.png"
+                alt="Proyek Pertamina Foundation di Hutan UGM"
+                className="w-full h-full object-cover rounded-xl"
+              />
+            ) : (
+              <div className="w-full h-48 bg-gray-100 rounded-xl"></div>
+            )}
           </div>
           <div className="p-6">
             <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3 font-[\'Plus Jakarta Sans\']">

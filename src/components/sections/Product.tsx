@@ -1,9 +1,21 @@
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
+
 export default function Product() {
+  const [sectionRef, isVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1 });
+  
   return (
-    <div id="produk" className="min-h-screen w-full bg-[url('/images/produk-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center py-8">
+    <div 
+      id="produk" 
+      ref={sectionRef}
+      className="min-h-screen w-full bg-[url('/images/produk-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center py-8 transition-opacity duration-500"
+      style={{ opacity: isVisible ? 1 : 0 }}
+    >
       <div className="w-full max-w-5xl">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div 
+          className={`text-center mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-10'}`}
+          style={isVisible ? {transitionDelay: '0.2s'} : {}}
+        >
           <div className="flex items-center justify-center gap-4">
             <div className="flex gap-1 items-center">
               <div className="w-8 h-8 rounded-full bg-yellow-400"></div>
@@ -20,9 +32,15 @@ export default function Product() {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+        <div 
+          className={`grid grid-cols-1 md:grid-cols-2 gap-6 px-4 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}
+          style={isVisible ? {transitionDelay: '0.4s'} : {}}
+        >
           {/* Gepo Solar Roof */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div 
+            className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 transform-none scale-100' : 'opacity-0 scale-95'}`}
+            style={isVisible ? {transitionDelay: '0.6s'} : {}}
+          >
             <div className="p-6">
               <h2 className="text-xl font-semibold text-center text-gray-800 mb-1">
                 Gepo Solar Roof
@@ -50,7 +68,10 @@ export default function Product() {
           </div>
 
           {/* Self Cleaning Technology */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div 
+            className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 transform-none scale-100' : 'opacity-0 scale-95'}`}
+            style={isVisible ? {transitionDelay: '0.8s'} : {}}
+          >
             <div className="p-6">
               <h2 className="text-xl font-semibold text-center text-gray-800 mb-1">
                 Self Cleaning Technology
@@ -71,7 +92,10 @@ export default function Product() {
           </div>
 
           {/* IoT */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div 
+            className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 transform-none scale-100' : 'opacity-0 scale-95'}`}
+            style={isVisible ? {transitionDelay: '1s'} : {}}
+          >
             <div className="p-6">
               <h2 className="text-xl font-semibold text-center text-gray-800 mb-1">
                 IoT
@@ -92,7 +116,10 @@ export default function Product() {
           </div>
 
           {/* Small Scale Prototype */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div 
+            className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 transform-none scale-100' : 'opacity-0 scale-95'}`}
+            style={isVisible ? {transitionDelay: '1.2s'} : {}}
+          >
             <div className="p-6">
               <h2 className="text-xl font-semibold text-center text-gray-800 mb-1">
                 Small Scale Prototype
@@ -113,7 +140,10 @@ export default function Product() {
           </div>
         </div>
         {/* Section transition wave */}
-        <div className="w-full overflow-hidden leading-none -mb-1">
+        <div 
+          className={`w-full overflow-hidden leading-none -mb-1 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}
+          style={isVisible ? {transitionDelay: '1.4s'} : {}}
+        >
           <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-20">
             <path d="M0,40 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#fff" />
           </svg>

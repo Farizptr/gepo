@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 interface CertificateProps {
   title: string;
@@ -7,15 +8,18 @@ interface CertificateProps {
   imageAlt: string;
 }
 
-const Certificate: FC<CertificateProps> = ({
+const Certificate: FC<CertificateProps & { isVisible: boolean, delay: string }> = ({
   title,
   description,
   imageSrc,
   imageAlt,
+  isVisible,
+  delay
 }) => {
   return (
     <div
-      className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105"
+      className={`bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-all duration-700 hover:scale-105 ${isVisible ? 'opacity-100 transform-none scale-100' : 'opacity-0 scale-95'}`}
+      style={isVisible ? {transitionDelay: delay} : {}}
     >
       <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
         <img
@@ -37,6 +41,8 @@ const Certificate: FC<CertificateProps> = ({
 };
 
 const Legality: FC = () => {
+  const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1 });
+  
   const certificates = [
     {
       title: "Sertifikat Perizinan Usaha Berbasis Risiko (NIB)",
@@ -57,15 +63,20 @@ const Legality: FC = () => {
   return (
     <section
       id="legalitas"
-      className="relative w-full min-h-screen bg-white overflow-hidden mt-10 px-4 sm:px-6 md:px-20"
+      ref={sectionRef}
+      className="relative w-full min-h-screen bg-white overflow-hidden mt-10 px-4 sm:px-6 md:px-20 transition-opacity duration-500"
       aria-labelledby="legality-heading"
+      style={{ opacity: isVisible ? 1 : 0 }}
     >
       {/* Yellow circular elements - decorative */}
 
       {/* Main content */}
       <div className="mx-auto py-12 sm:py-16">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        <div 
+          className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-10'}`}
+          style={isVisible ? {transitionDelay: '0.2s'} : {}}
+        >
           <h2
             id="legality-heading"
             className="font-semibold mb-1 text-3xl sm:text-4xl md:text-[40px] leading-tight text-black"
@@ -78,7 +89,10 @@ const Legality: FC = () => {
         </div>
 
         {/* Certificates Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+        <div 
+          className={`grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}
+          style={isVisible ? {transitionDelay: '0.4s'} : {}}
+        >
           {certificates.map((cert, index) => (
             <Certificate
               key={index}
@@ -86,6 +100,8 @@ const Legality: FC = () => {
               description={cert.description}
               imageSrc={cert.imageSrc}
               imageAlt={cert.imageAlt}
+              isVisible={isVisible}
+              delay={`${0.6 + (index * 0.2)}s`}
             />
           ))}
         </div>

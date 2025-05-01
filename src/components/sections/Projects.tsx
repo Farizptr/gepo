@@ -1,8 +1,18 @@
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
+
 export default function Projects() {
+  const [sectionRef, isVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1 });
+  
   return (
-    <div id="proyek" className="w-full bg-white py-16 px-4 md:px-20">
+    <div 
+      id="proyek" 
+      ref={sectionRef}
+      className={`w-full bg-white py-16 px-4 md:px-20 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
       {/* Header with yellow line decoration */}
-      <div className=" mx-auto mb-20 flex items-center justify-center ">
+      <div className={`mx-auto mb-20 flex items-center justify-center transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-10'}`} 
+           style={isVisible ? {transitionDelay: '0.2s'} : {}}
+      >
         <svg
           width="100%"
           height="32"
@@ -27,9 +37,13 @@ export default function Projects() {
       </div>
 
       {/* Projects grid */}
-      <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className={`mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}
+           style={isVisible ? {transitionDelay: '0.4s'} : {}}
+      >
         {/* Project 1 */}
-        <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
+        <div className={`bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-all duration-700 hover:scale-105 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-x-10'}`}
+             style={isVisible ? {transitionDelay: '0.6s'} : {}}
+        >
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
             <img
               src="/images/projek-1.png"
@@ -38,10 +52,10 @@ export default function Projects() {
             />
           </div>
           <div className="p-6">
-            <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3 font-[\'Plus Jakarta Sans\']">
+            <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3 font-['Plus Jakarta Sans']">
               Pemberdayaan Desa Tanaman
             </h3>
-            <p className="text-[16px] mb-4 font-[\'Plus Jakarta Sans\'] text-[#828282]">
+            <p className="text-[16px] mb-4 font-['Plus Jakarta Sans'] text-[#828282]">
               Dalam proyek ini, Gepo Energy bekerja sama dengan Dewan Energi
               Mahasiswa UGM (DEM UGM) berkesempatan melakukan pemberdayaan di
               Desa Tanaman. Gepo Energy melakukan instalasi Genting Photovoltaic
@@ -71,7 +85,9 @@ export default function Projects() {
         </div>
 
         {/* Project 2 */}
-        <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
+        <div className={`bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-all duration-700 hover:scale-105 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-x-10'}`}
+             style={isVisible ? {transitionDelay: '0.8s'} : {}}
+        >
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
             <img
               src="/images/projek-2.png"
@@ -80,10 +96,10 @@ export default function Projects() {
             />
           </div>
           <div className="p-6">
-            <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3 font-[\'Plus Jakarta Sans\']">
+            <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3 font-['Plus Jakarta Sans']">
               Proyek Pertamina Foundation di Hutan UGM
             </h3>
-            <p className="text-[16px] mb-4 font-[\'Plus Jakarta Sans\'] text-[#828282]">
+            <p className="text-[16px] mb-4 font-['Plus Jakarta Sans'] text-[#828282]">
               Dalam proyek ini, Gepo Energy bekerja sama dengan Pertamina
               Foundation dalam melakukan instalasi GEPO pada Dukungan Fasilitas
               Rumah Kompos Terintegrasi. Gepo Energy melakukan pemasangan 300
@@ -112,7 +128,9 @@ export default function Projects() {
       </div>
 
       {/* Pagination/Navigation buttons */}
-      <div className="max-w-6xl mx-auto mt-12 flex justify-center space-x-4">
+      <div className={`max-w-6xl mx-auto mt-12 flex justify-center space-x-4 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}
+           style={isVisible ? {transitionDelay: '1s'} : {}}
+      >
         <button
           className="w-14 h-14 rounded-full border-2 border-gray-300 bg-white flex items-center justify-center p-0 focus:outline-none transition-all duration-200 hover:border-yellow-400 hover:shadow-lg"
           aria-label="Previous page"

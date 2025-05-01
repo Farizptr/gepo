@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 interface Testimonial {
   quote: string;
@@ -130,30 +131,42 @@ const Comments: React.FC = () => {
     }
   }, [nextTestimonial, prevTestimonial]);
 
+  const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1 });
+
   return (
     <section 
       id="testimoni"
-      className="py-12 sm:py-16 md:py-20 bg-white"
+      ref={sectionRef}
+      className="py-12 sm:py-16 md:py-20 bg-white transition-opacity duration-500"
       aria-labelledby="testimonials-heading"
+      style={{ opacity: isVisible ? 1 : 0 }}
     >
       <div className="px-4 sm:px-6 md:px-0 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-          <div className="lg:w-2/5 mb-8 lg:mb-0">
+          <div 
+            className={`lg:w-2/5 mb-8 lg:mb-0 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-x-10'}`}
+            style={isVisible ? {transitionDelay: '0.2s'} : {}}
+          >
             <img
               src="/images/quote.png"
               alt="Quote Mark"
-              className="w-12 h-12 sm:w-16 sm:h-16 mb-4"
+              className={`w-12 h-12 sm:w-16 sm:h-16 mb-4 transition-all duration-700 ${isVisible ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-12'}`}
               width="64"
               height="64"
               aria-hidden="true"
+              style={isVisible ? {transitionDelay: '0.4s'} : {}}
             />
             <h2 
               id="testimonials-heading"
-              className="text-3xl sm:text-4xl md:text-[48px] font-bold text-gray-900 leading-tight w-full"
+              className={`text-3xl sm:text-4xl md:text-[48px] font-bold text-gray-900 leading-tight w-full transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}
+              style={isVisible ? {transitionDelay: '0.6s'} : {}}
             >
               Apa kata mereka tentang Gepo Energy
             </h2>
-            <div className="mt-6 sm:mt-8 flex items-center w-full max-w-xs">
+            <div 
+              className={`mt-6 sm:mt-8 flex items-center w-full max-w-xs transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}
+              style={isVisible ? {transitionDelay: '0.8s'} : {}}
+            >
               <button
                 onClick={prevTestimonial}
                 className="focus:outline-none focus:ring-2 focus:ring-[#FFD700] p-2 rounded-full hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
@@ -220,9 +233,12 @@ const Comments: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full lg:ml-8">
+          <div 
+            className={`w-full lg:ml-8 transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-x-10'}`}
+            style={isVisible ? {transitionDelay: '0.4s'} : {}}
+          >
             <div 
-              className="relative w-full min-h-[280px] sm:min-h-[320px] md:min-h-[400px] flex items-center overflow-x-hidden"
+              className={`relative w-full min-h-[280px] sm:min-h-[320px] md:min-h-[400px] flex items-center overflow-x-hidden transition-all duration-700 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'}`}
               role="region"
               aria-label="Testimonial slider"
               onTouchStart={handleTouchStart}
@@ -230,6 +246,7 @@ const Comments: React.FC = () => {
               onTouchEnd={handleTouchEnd}
               onKeyDown={handleKeyDown}
               tabIndex={0}
+              style={isVisible ? {transitionDelay: '0.6s'} : {}}
             >
               {/* Slider track */}
               <div

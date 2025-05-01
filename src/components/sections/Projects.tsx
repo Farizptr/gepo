@@ -2,9 +2,8 @@ import { useRef, useEffect, useState } from 'react';
 import ImageLoader from '../ImageLoader';
 
 export default function Projects() {
-  // Track if content is visible and if images should be loaded
+  // Track if content is visible
   const [isVisible, setIsVisible] = useState(false);
-  const [shouldLoadImages, setShouldLoadImages] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   
@@ -27,24 +26,7 @@ export default function Projects() {
     return () => observer.disconnect();
   }, []);
   
-  // Second intersection observer - only load images when projects are about to be visible
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoadImages(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px 0px' } // Start loading images when within 200px of viewport
-    );
-    
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current);
-    }
-    
-    return () => observer.disconnect();
-  }, []);
+  // We no longer need a separate observer for images since the blur-up effect handles loading
   return (
     <div ref={sectionRef} id="proyek" className="w-full bg-white py-16 px-4 md:px-20">
       {/* Header with yellow line decoration */}
@@ -79,15 +61,12 @@ export default function Projects() {
         {/* Project 1 */}
         <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
-            {shouldLoadImages ? (
-              <ImageLoader
-                src="/images/projek-1.png"
-                alt="Pemberdayaan Desa Tanaman"
-                className="w-full h-full object-cover rounded-xl"
-              />
-            ) : (
-              <div className="w-full h-48 bg-gray-100 rounded-xl"></div>
-            )}
+            <ImageLoader
+              src="/images/projek-1.png"
+              alt="Pemberdayaan Desa Tanaman"
+              className="w-full h-full rounded-xl"
+              blurAmount={8}
+            />
           </div>
           <div className="p-6">
             <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3 font-[\'Plus Jakarta Sans\']">
@@ -125,15 +104,12 @@ export default function Projects() {
         {/* Project 2 */}
         <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
-            {shouldLoadImages ? (
-              <ImageLoader
-                src="/images/projek-2.png"
-                alt="Proyek Pertamina Foundation di Hutan UGM"
-                className="w-full h-full object-cover rounded-xl"
-              />
-            ) : (
-              <div className="w-full h-48 bg-gray-100 rounded-xl"></div>
-            )}
+            <ImageLoader
+              src="/images/projek-2.png"
+              alt="Proyek Pertamina Foundation di Hutan UGM"
+              className="w-full h-full rounded-xl"
+              blurAmount={8}
+            />
           </div>
           <div className="p-6">
             <h3 className="text-[20px] font-semibold text-[#4F4F4F] mb-3 font-[\'Plus Jakarta Sans\']">

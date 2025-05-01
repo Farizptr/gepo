@@ -1,6 +1,29 @@
+import { useRef, useEffect, useState } from 'react';
+import ImageLoader from '../ImageLoader';
+
 export default function Projects() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
   return (
-    <div id="proyek" className="w-full bg-white py-16 px-4 md:px-20">
+    <div ref={sectionRef} id="proyek" className="w-full bg-white py-16 px-4 md:px-20">
       {/* Header with yellow line decoration */}
       <div className=" mx-auto mb-20 flex items-center justify-center ">
         <svg
@@ -27,11 +50,11 @@ export default function Projects() {
       </div>
 
       {/* Projects grid */}
-      <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className={`mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         {/* Project 1 */}
         <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
-            <img
+            <ImageLoader
               src="/images/projek-1.png"
               alt="Pemberdayaan Desa Tanaman"
               className="w-full h-full object-cover rounded-xl"
@@ -73,7 +96,7 @@ export default function Projects() {
         {/* Project 2 */}
         <div className="bg-white rounded-3xl shadow-[0_8px_24px_0_rgba(0,0,0,0.15)] overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105">
           <div className="w-full overflow-hidden rounded-xl flex items-center justify-center p-6">
-            <img
+            <ImageLoader
               src="/images/projek-2.png"
               alt="Proyek Pertamina Foundation di Hutan UGM"
               className="w-full h-full object-cover rounded-xl"

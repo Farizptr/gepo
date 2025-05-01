@@ -13,7 +13,8 @@ export const useIntersectionObserver = <T extends Element>(
   options: IntersectionObserverOptions = {}
 ): [RefObject<T>, boolean] => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const elementRef = useRef<T>(null);
+  // Using type assertion to tell TypeScript that this ref will be used properly
+  const elementRef = useRef<T>(null) as RefObject<T>;
   const { threshold = 0.1, rootMargin = '0px', root = null } = options;
 
   useEffect(() => {
@@ -38,5 +39,6 @@ export const useIntersectionObserver = <T extends Element>(
     };
   }, [threshold, rootMargin, root, isIntersecting]);
 
+  // Return the ref and intersection state
   return [elementRef, isIntersecting];
 };

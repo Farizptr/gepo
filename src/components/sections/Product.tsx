@@ -10,7 +10,7 @@ export default function Product() {
               <div className="w-5 h-5 rounded-full bg-yellow-400"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
             </div>
-            <h1 className="font-semibold mx-4" style={{ fontSize: '30px' }}>Produk</h1>
+            <h1 className="font-semibold mb-1 text-3xl sm:text-4xl md:text-[40px] leading-tight mx-4">Produk</h1>
             <div className="flex gap-1 items-center">
               <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
               <div className="w-5 h-5 rounded-full bg-yellow-400"></div>

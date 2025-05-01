@@ -68,7 +68,7 @@ const Legality: FC = () => {
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2
             id="legality-heading"
-            className="font-semibold mb-1 text-3xl sm:text-4xl md:text-[40px] leading-tight"
+            className="font-semibold mb-1 text-3xl sm:text-4xl md:text-[40px] leading-tight text-black"
           >
             Legalitas
           </h2>
